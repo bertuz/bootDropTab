@@ -70,10 +70,8 @@ Finally, we got to call our plugin only on the dropdown tabs we want to behave d
 
 	$("#myTab a").click(funClick);
 
-	$("ul.nav-tabs a").dropTab(funClick);
-
 in this case we erroneously call `.tab("show")` on our dropdown item as well, and because of this the plugin will stop working properly. On the other hand, a call like that is fairly convenient. The solution is passing that `funClick` function along with the plugin initialization call:
 
 	$("li.bootDropTab").dropTab(funClick);
 
-the listener will be removed for `li.bootDropTab` and everything will work smoothly.
+the listener will be removed on `li.bootDropTab` and everything will work smoothly.
