@@ -2,15 +2,17 @@
 	$.fn.dropTab= function(clickHandlerToRemove) {
 		var $aTab= $("a.contentTab", this);
 		var $dropDown= $("span.crtOpenDrop", $aTab);
+		var $subTab= $("a.subtab:first", this);
 
-		this.data("bootDropTabHref", $("a.subtab:first", this).attr("href"));
+		this.data("bootDropTabHref", $subTab.attr("href"));
+		$("span.tabsel", $aTab).html($subTab.html());
 
 		$dropDown.click(function(e) {
 			var $anchor= $(this).closest("a");
 			var href= $anchor.attr("href");
 
 			e.preventDefault();
-			
+
 		  	$anchor
 		  		.addClass("dropdown-toggle")
 		  	  	.attr("data-toggle", "dropdown");
